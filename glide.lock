@@ -1,0 +1,16 @@
+hash: 42ccc54acdc9f13b22755017f152b0f1ab803af65dd04270eddc04d63c9986b7
+updated: 2017-02-18T15:42:59.658993382-05:00
+imports:
+- name: github.com/dghubble/sling
+  version: eb56e89ac5088bebb12eef3cb4b293300f43608b
+- name: github.com/google/go-querystring
+  version: 53e6ce116135b80d037921a7fdd5138cf32d7a8a
+  subpackages:
+  - query
+- name: github.com/stretchr/testify
+  version: 69483b4bd14f5845b5a1e55bca19e954e827f1d0
+testImports:
+- name: github.com/magiconair/properties
+  version: b3b15ef068fd0b17ddf408a23669f20811d194d2
+  subpackages:
+  - assert
