@@ -1,7 +1,9 @@
 package coinpayments
 
 import (
+	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/dghubble/sling"
 )
@@ -12,11 +14,22 @@ type BalanceService struct {
 	Params       BalanceBodyParams
 }
 
+// Balances struct for JSON Response
+// `Balance` field is commented because the
+// response has a mix of type for the field "balance" (satoshi)
 type Balance struct {
-	Balance    string `json:"balance"`
+	// Balance    uint64 `json:"balance,string"`
 	BalanceF   string `json:"balancef"`
 	CoinStatus string `json:"coin_status"`
 	Status     string `json:"status"`
+}
+
+func (b *Balance) GetSatoshi() uint64 {
+	balance, err := strconv.ParseFloat(b.BalanceF, 64)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return uint64(balance * 100000000.00)
 }
 
 type BalanceResponse struct {
