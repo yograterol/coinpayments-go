@@ -13,6 +13,6 @@ Tested on Go 1.7 and 1.8.
 
 ## TODO
 
-- [] Solve the inconsistent in Balances API with `balance` field.
-- [] IPN methods
-- [] More reliable tests
+- [ ] Solve the inconsistent in Balances API with `balance` field.
+- [ ] IPN methods
+- [ ] More reliable tests
