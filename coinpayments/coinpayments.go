@@ -21,6 +21,7 @@ type Client struct {
 	Rates            *RateService
 	Balances         *BalanceService
 	DepositAddresses *DepositAddressService
+	Transactions     *TransactionService
 }
 
 type APIParams struct {
@@ -38,6 +39,7 @@ func NewClient(publicKey string, privateKey string, httpClient *http.Client) *Cl
 		Rates:            newRateService(baseClient.New(), publicKey),
 		Balances:         newBalanceService(baseClient.New(), publicKey),
 		DepositAddresses: newDepositAddressService(baseClient.New(), publicKey),
+		Transactions:     newTransactionService(baseClient.New(), publicKey),
 	}
 }
 
