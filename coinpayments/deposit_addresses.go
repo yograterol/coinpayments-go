@@ -47,7 +47,8 @@ func (s *DepositAddressService) getHMAC() string {
 	return getHMAC(getPayload(s.Params))
 }
 
-func (s *DepositAddressService) Show(depositAddressParams *DepositAddressParams) (DepositAddressResponse, *http.Response,
+func (s *DepositAddressService) GetNewAddreess(depositAddressParams *DepositAddressParams) (DepositAddressResponse,
+	*http.Response,
 	error) {
 	depositAddressResponse := new(DepositAddressResponse)
 	s.Params.Currency = depositAddressParams.Currency

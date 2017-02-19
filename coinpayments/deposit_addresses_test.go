@@ -18,7 +18,7 @@ func TestDepositAddresses(t *testing.T) {
 	})
 
 	client := NewClient("", "", httpClient)
-	depositAddress, _, err := client.DepositAddresses.Show(&DepositAddressParams{"BTC"})
+	depositAddress, _, err := client.DepositAddresses.GetNewAddreess(&DepositAddressParams{"BTC"})
 
 	expected := DepositAddressResponse{
 		Error: "ok",
