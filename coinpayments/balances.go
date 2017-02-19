@@ -16,7 +16,7 @@ type BalanceService struct {
 
 // Balances struct for JSON Response
 // `Balance` field is commented because the
-// response has a mix of type for the field "balance" (satoshi)
+// response has a mix of types for the field "balance" (satoshi)
 type Balance struct {
 	// Balance    uint64 `json:"balance,string"`
 	BalanceF   string `json:"balancef"`
