@@ -1,7 +1,6 @@
 package coinpayments
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/dghubble/sling"
@@ -58,8 +57,6 @@ func (s *RateService) Show(params *RateParams) (RateResponse, *http.Response, er
 	rateResponse := new(RateResponse)
 	s.Params.Short = params.Short
 	s.Params.Accepted = params.Accepted
-	fmt.Println(s.getHMAC())
-	fmt.Println(getPayload(s.Params))
 	resp, err := s.sling.New().Set("HMAC", s.getHMAC()).Post(
 		"api.php").BodyForm(s.Params).ReceiveSuccess(rateResponse)
 	return *rateResponse, resp, err

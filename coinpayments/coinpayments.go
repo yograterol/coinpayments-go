@@ -19,6 +19,7 @@ type Client struct {
 	sling       *sling.Sling
 	AccountInfo *AccountInfoService
 	Rates       *RateService
+	Balances    *BalanceService
 }
 
 type APIParams struct {
@@ -34,6 +35,7 @@ func NewClient(publicKey string, privateKey string, httpClient *http.Client) *Cl
 		sling:       baseClient,
 		AccountInfo: newAccountInfoService(baseClient.New(), publicKey),
 		Rates:       newRateService(baseClient.New(), publicKey),
+		Balances:    newBalanceService(baseClient.New(), publicKey),
 	}
 }
 
