@@ -1,4 +1,4 @@
-# API Wrapper for the Coinpayments API written in Golang
+# API Wrapper for Coinpayments API written in Golang
 
 [![Build Status](https://travis-ci.org/yograterol/coinpayments-go.svg?branch=master)](https://travis-ci.org/yograterol/coinpayments-go)
 

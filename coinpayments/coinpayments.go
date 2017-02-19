@@ -16,10 +16,11 @@ const apiBase = "https://www.coinpayments.net/"
 var apiPrivateKey string
 
 type Client struct {
-	sling       *sling.Sling
-	AccountInfo *AccountInfoService
-	Rates       *RateService
-	Balances    *BalanceService
+	sling            *sling.Sling
+	AccountInfo      *AccountInfoService
+	Rates            *RateService
+	Balances         *BalanceService
+	DepositAddresses *DepositAddressService
 }
 
 type APIParams struct {
@@ -32,10 +33,11 @@ func NewClient(publicKey string, privateKey string, httpClient *http.Client) *Cl
 	baseClient := sling.New().Client(httpClient).Base(apiBase)
 	apiPrivateKey = privateKey
 	return &Client{
-		sling:       baseClient,
-		AccountInfo: newAccountInfoService(baseClient.New(), publicKey),
-		Rates:       newRateService(baseClient.New(), publicKey),
-		Balances:    newBalanceService(baseClient.New(), publicKey),
+		sling:            baseClient,
+		AccountInfo:      newAccountInfoService(baseClient.New(), publicKey),
+		Rates:            newRateService(baseClient.New(), publicKey),
+		Balances:         newBalanceService(baseClient.New(), publicKey),
+		DepositAddresses: newDepositAddressService(baseClient.New(), publicKey),
 	}
 }
 
